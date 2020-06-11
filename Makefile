@@ -4,3 +4,5 @@ install:
 	docker-compose exec vuesplash_web npm install
 watch:
 	docker-compose exec vuesplash_web npm run watch
+ssh:
+	docker-compose exec vuesplash_web bash
