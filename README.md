@@ -5,6 +5,10 @@
 今回選定したLaravelもリーディング自体は可能だがスタートアップから参加可能かと言われたらそうではないので、ひとまずアプリケーションをチュートリアルサイトを参考に作成する。
 VueはTypeScriptを用いて開発する。形式はVue.extend
 
+**参考**
+- https://qiita.com/ProjectEuropa/items/359859855de670a995a1
+- https://qiita.com/7110/items/e6fba3dce01ea85bddb7
+
 ## 参考教材
 **Vue + Vue Router + Vuex + Laravelで写真共有アプリを作ろう**
 - [(1) イントロダクション](https://www.hypertextcandy.com/vue-laravel-tutorial-introduction/)
