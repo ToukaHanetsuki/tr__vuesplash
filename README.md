@@ -1,13 +1,25 @@
 # Catch up with the backend
 
+## Environment
+git clone [リポジトリurl]
+
+docker-compose build
+
+make serve
+
+make watch
+
+make ssh
+
 ## 目的
 そろそろバックエンドの言語一つくらいは習得してみようと考えた。
 今回選定したLaravelもリーディング自体は可能だがスタートアップから参加可能かと言われたらそうではないので、ひとまずアプリケーションをチュートリアルサイトを参考に作成する。
-VueはTypeScriptを用いて開発する。形式はVue.extend
+Vue3.0をTypeScriptを用いて利用する。
 
 **参考**
 - https://qiita.com/ProjectEuropa/items/359859855de670a995a1
 - https://qiita.com/7110/items/e6fba3dce01ea85bddb7
+- https://tech.smartcamp.co.jp/entry/try-vue-composition-api
 
 ## 参考教材
 **Vue + Vue Router + Vuex + Laravelで写真共有アプリを作ろう**
@@ -32,8 +44,8 @@ VueはTypeScriptを用いて開発する。形式はVue.extend
 - (1) イントロダクション [◎]
 - (2) アプリケーションの設計 [◎]
 - (3) SPA開発環境とVue Router [◎]
-- (4) 認証API
-- (5) 認証ページ
+- (4) 認証API [◎]
+- (5) 認証ページ [◎]
 - (6) 認証機能とVuex
 - (7) 認証機能とVuex Part.2
 - (8) エラーハンドリング

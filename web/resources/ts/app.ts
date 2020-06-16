@@ -1,8 +1,10 @@
 import Vue from 'vue'
-// ルーティングの定義をインポートする
 import router from './router'
-// ルートコンポーネントをインポートする
 import App from './App.vue'
+
+import VueCompositionApi from '@vue/composition-api'
+
+Vue.use(VueCompositionApi)
 
 new Vue({
   el: '#app',
