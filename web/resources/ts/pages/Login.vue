@@ -43,11 +43,11 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, reactive, toRefs } from '@vue/composition-api'
+<script lang="ts">
+import { defineComponent, reactive, toRefs, SetupContext } from '@vue/composition-api'
 
 export default defineComponent({
-  setup() {
+  setup(prop, ctx: SetupContext) {
     const state = reactive({
       tab: 1
     })
@@ -64,20 +64,20 @@ export default defineComponent({
         password_confirmation: ''
     })
 
-    const login = () => {
-      console.log(loginForm)
-    }
-
-    const register = () => {
-      console.log(registerForm)
-    }
-
     return {
       ...toRefs(state),
       loginForm,
       registerForm,
-      login,
-      register,
+
+      async login() {
+        await ctx.root.$store.auth.login(loginForm)
+        ctx.root.$router.push('/')
+      },
+
+      async register() {
+        await ctx.root.$store.auth.register(registerForm)
+        ctx.root.$router.push('/')
+      },
     }
   }
 })

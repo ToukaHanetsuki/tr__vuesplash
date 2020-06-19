@@ -6,3 +6,5 @@ watch:
 	docker-compose exec vuesplash_web npm run watch
 ssh:
 	docker-compose exec vuesplash_web bash
+db:
+	docker-compose exec vuesplash_database psql -U postgres postgres
