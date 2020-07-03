@@ -4,16 +4,16 @@
       Vuesplash
     </RouterLink>
     <div class="navbar__menu">
-      <div class="navbar__item">
+      <div v-if="isLogin" class="navbar__item">
         <button class="button">
           <i class="icon ion-md-add"></i>
           Submit a photo
         </button>
       </div>
-      <span class="navbar__item">
-        username
+      <span v-if="isLogin" class="navbar__item">
+        {{ username }}
       </span>
-      <div class="navbar__item">
+      <div v-else class="navbar__item">
         <RouterLink class="button button--link" to="/login">
           Login / Register
         </RouterLink>
@@ -22,8 +22,18 @@
   </nav>
 </template>
 
-<script>
-import { defineComponent } from '@vue/composition-api'
+<script lang="ts">
+import { defineComponent, SetupContext, computed } from '@vue/composition-api'
 
-export default defineComponent({})
+export default defineComponent({
+  setup(prop, ctx: SetupContext) {
+    const isLogin = computed(() => ctx.root.$store.auth.check)
+    const username = computed(() => ctx.root.$store.auth.username)
+
+    return {
+      isLogin,
+      username
+    }
+  }
+})
 </script>

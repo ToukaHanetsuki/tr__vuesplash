@@ -7,8 +7,12 @@ export default function authStore() {
   });
 
   return {
-    get user() {
-      return state.user;
+    get check() {
+        return !!state.user;
+    },
+
+    get username() {
+        return state.user ? state.user.name : '';
     },
 
     async register (data: RegisterForm) {
@@ -21,10 +25,15 @@ export default function authStore() {
         this.setUser(response.data)
     },
 
-
     async logout () {
         const response = await axios.post('/api/logout')
         this.setUser(null)
+    },
+
+    async currentUser () {
+        const response = await axios.get('/api/user')
+        const user = response.data || null
+        this.setUser(user)
     },
 
     setUser (user: UserState) {

@@ -9,10 +9,16 @@ import VueCompositionApi from '@vue/composition-api'
 
 Vue.use(VueCompositionApi)
 
-Vue.prototype.$store = globalStore();
+export const store = Vue.prototype.$store = globalStore()
 
-new Vue({
-  el: '#app',
-  router,
-  render: h => h(App),
-})
+const createApp = async () => {
+    await store.auth.currentUser()
+
+    new Vue({
+        el: '#app',
+        router,
+        render: h => h(App),
+    })
+}
+
+createApp()

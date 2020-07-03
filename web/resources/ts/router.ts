@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import VueRouter, { RouteConfig } from 'vue-router'
 
 // ページコンポーネントをインポートする
 import PhotoList from './pages/PhotoList.vue'
@@ -10,15 +10,22 @@ import Login from './pages/Login.vue'
 Vue.use(VueRouter)
 
 // パスとコンポーネントのマッピング
-const routes = [
-  {
-    path: '/',
-    component: PhotoList
-  },
-  {
-    path: '/login',
-    component: Login
-  }
+const routes: RouteConfig[] = [
+    {
+        path: '/',
+        component: PhotoList
+    },
+    {
+        path: '/login',
+        component: Login,
+        beforeEnter (to, from, next) {
+            if (Vue.prototype.$store.auth.check) {
+                next('/')
+            } else {
+                next()
+            }
+        }
+    }
 ]
 
 // VueRouterインスタンスを作成する
